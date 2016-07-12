@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="Expenses.MainMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <link rel="Shortcut Icon" href="http://www.totalexpenses.com/images/icons/table-money-icon.png" />
+    <title>Total Expenses - Ultimate Budget Tool</title>
+    <script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+    <link href="../js/css/smoothness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+    <link href="../ccs/expenses.css" rel="stylesheet" type="text/css" />
+
+
+     <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+
+</head>
+
+ 
+
+<script language="javascript" type="text/javascript">
+// <![CDATA[
+
+    $(document).ready(function () {
+
+//        $('#divTop').delay(5000).fadeOut('slow');
+//        $('#divSlogan').hide();
+
+        $("#divDialogCopyRights").dialog({
+            modal: true,
+            autoOpen: false,
+            width: $(window).width() - $(window).width()/2,
+            height: $(window).height() - $(window).height()/3,
+            title: "Copyright <%=DateTime.Now.Year%> TotalExpenses.com"
+        });
+
+//        $("#btnLoginRedirect").button({
+//             label:"Log In",
+//             onclick: (function () {alert("I am login")})
+//        });
+ 
+
+        return false;
+    });
+
+   
+
+            function fnOpenDialog() {
+                $("#divDialogCopyRights").dialog('open');
+                $("#divDialogCopyRights").load('../html/copyright.htm');
+              return false;
+            }
+
+// ]]>
+    </script>
+
+<body>
+    <form runat="server">
+    <div id="divDialogCopyRights"></div>
+
+  <div class="exp-master-top" id="divTop">
+        <div>
+         <span class="exp-master-top-h1">Total Expenses</span> 
+         <span class="exp-master-top-span">- your best budget tool to look into the past, control the present, and not to repeat the financial mistakes in the future.</span>
+           <div class="exp-master-menu-login-button" >
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        <a id="A1" href="~/Account/Login.aspx" runat="server">
+                        <img alt="Login" src="../images/icons/login-in-icon-32.png" title="Click here to Login"/>
+                        </a>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <asp:ImageButton runat="server" ImageUrl="~/images/icons/login-out-icon-32.png"
+                                         AlternateText="Logout" ToolTip="Logout" ID="btnLogout" 
+                                         OnClick="btnLogout_OnClick" />
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+        </div>
+  </div>
+       <div class="clear exp-master-menu-wrap">
+        <div class="exp-master-menu">
+            <asp:Menu ID="NavigationMenu" runat="server" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/default.aspx?return=true" Text="Home"/>
+                    <asp:MenuItem NavigateUrl="~/activity_month_calendar.aspx" Text="Monthly Activity" /> 
+                    <asp:MenuItem NavigateUrl="~/tools/exp_tools_loan_cal.aspx" Text="Calculators" /> 
+                    <asp:MenuItem NavigateUrl="~/settings/exp_setting_main.aspx" Text="Settings" /> 
+                    <%--<asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/> --%>
+                </Items>
+            </asp:Menu>
+          </div>
+       </div>
+
+  <div class="exp-master-page">
+      <div class="exp-master-main-content">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+     </div>
+    <div class="clear"></div>
+ </div>
+
+ <div style="color: #4e5766; padding:  2px 0px 0px 0px; margin:  0px 5px 0px 5px;
+            text-align:left; font-size:0.8em; line-height: normal;">
+    <table>
+    <tr>
+    <td>
+     &copy;
+    <a href="#" title="Go to Copyright page" onclick="fnOpenDialog()">
+      Copyright <%=DateTime.Now.Year %> TotalExpenses.com</a>
+    
+    &nbsp;
+    All rights reserved.
+	        Warning: This web site is protected by copyright 
+	        law and international treaties. Unauthorized reproduction, distribution 
+	        any portion of it or inappropriate using may result in severe civil and criminal penalties, and will 
+	        be prosecuted to the maximum extent possible under the law.
+    </td>
+    <td valign="top" style="white-space:nowrap;"> 
+      <div runat="server" id="divLoggedUser" visible="false" 
+            style="background:transparent; border:1px solid #3a4f63; padding: 2px 5px 2px 5px; font-size:0.9em;">
+       Logged: <span style="font-weight:bold;">
+               <asp:LoginName ID="LoginName" runat="server" />
+            </span>
+      </div>
+    </td>
+    </tr>
+    </table>
+  </div>
+ </form>
+</body>
+</html>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="expensesModelStoreContainer" CdmEntityContainer="expensesEntities">
+    <EntitySetMapping Name="exp_ctg">
+      <EntityTypeMapping TypeName="expensesModel.exp_ctg">
+        <MappingFragment StoreEntitySet="exp_ctg">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CtgId" ColumnName="CtgId" />
+          <ScalarProperty Name="CtgName" ColumnName="CtgName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exp_ctglink">
+      <EntityTypeMapping TypeName="expensesModel.exp_ctglink">
+        <MappingFragment StoreEntitySet="exp_ctglink">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CtgId" ColumnName="CtgId" />
+          <ScalarProperty Name="SubCtgId" ColumnName="SubCtgId" />
+          <ScalarProperty Name="CtgLinkId" ColumnName="CtgLinkId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exp_record">
+      <EntityTypeMapping TypeName="expensesModel.exp_record">
+        <MappingFragment StoreEntitySet="exp_record">
+          <ScalarProperty Name="ExpId" ColumnName="ExpId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AmtExp" ColumnName="AmtExp" />
+          <ScalarProperty Name="YmdAdd" ColumnName="YmdAdd" />
+          <ScalarProperty Name="CtgId" ColumnName="CtgId" />
+          <ScalarProperty Name="SubCtgId" ColumnName="SubCtgId" />
+          <ScalarProperty Name="ExpSchemeId" ColumnName="ExpSchemeId" />
+          <ScalarProperty Name="ExpDesc" ColumnName="ExpDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exp_subctg">
+      <EntityTypeMapping TypeName="expensesModel.exp_subctg">
+        <MappingFragment StoreEntitySet="exp_subctg">
+          <ScalarProperty Name="SubCtgId" ColumnName="SubCtgId" />
+          <ScalarProperty Name="SubCtgName" ColumnName="SubCtgName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exp_user">
+      <EntityTypeMapping TypeName="expensesModel.exp_user">
+        <MappingFragment StoreEntitySet="exp_user">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
+          <ScalarProperty Name="ActiveStatus" ColumnName="ActiveStatus" />
+          <ScalarProperty Name="AgreeStatus" ColumnName="AgreeStatus" />
+          <ScalarProperty Name="FreeSpace" ColumnName="FreeSpace" />
+          <ScalarProperty Name="YmdEff" ColumnName="YmdEff" />
+          <ScalarProperty Name="YmdEnd" ColumnName="YmdEnd" />
+          <ScalarProperty Name="AspUserId" ColumnName="AspUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exp_event">
+      <EntityTypeMapping TypeName="expensesModel.exp_event">
+        <MappingFragment StoreEntitySet="exp_event">
+          <ScalarProperty Name="Event5" ColumnName="Event5" />
+          <ScalarProperty Name="Event4" ColumnName="Event4" />
+          <ScalarProperty Name="Event3" ColumnName="Event3" />
+          <ScalarProperty Name="Event2" ColumnName="Event2" />
+          <ScalarProperty Name="Event1" ColumnName="Event1" />
+          <ScalarProperty Name="EventDesc" ColumnName="EventDesc" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exp_event_type">
+      <EntityTypeMapping TypeName="expensesModel.exp_event_type">
+        <MappingFragment StoreEntitySet="exp_event_type">
+          <ScalarProperty Name="EventTypeDesc" ColumnName="EventTypeDesc" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="proc_exp_rpt_sum_dates_range" FunctionName="expensesModel.Store.proc_exp_rpt_sum_dates_range">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="expensesModel.proc_exp_rpt_sum_dates_range_result">
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="GroupOrder" ColumnName="GroupOrder" />
+          <ScalarProperty Name="CtgId" ColumnName="CtgId" />
+          <ScalarProperty Name="CtgName" ColumnName="CtgName" />
+          <ScalarProperty Name="SubCtgID" ColumnName="SubCtgID" />
+          <ScalarProperty Name="SubCtgName" ColumnName="SubCtgName" />
+          <ScalarProperty Name="SumAmtExp" ColumnName="SumAmtExp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="expensesModel.aspnet_Membership">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="expensesModel.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

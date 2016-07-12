@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4C8FAA5-1EB3-473C-AC91-6E14DB2B3B4D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Expenses</RootNamespace>
+    <AssemblyName>Expenses</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="ApplicationServices-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=RLYGA\SQL2008R2%3bInitial Catalog=expenses%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\ApplicationServices-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="expensesEntities-Deployment" Order="2">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=RLYGA\SQL2008R2%3bInitial Catalog=expenses%3bIntegrated Security=True%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\expensesEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXSSLibrary">
+      <HintPath>C:\Program Files\Microsoft Information Security\AntiXSS Library v4.2\NET40\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="account\ChangePassword.aspx" />
+    <Content Include="account\ChangePasswordSuccess.aspx" />
+    <Content Include="account\Login.aspx" />
+    <Content Include="account\Register.aspx" />
+    <Content Include="activity_month_calendar.aspx" />
+    <Content Include="activity_day_form.aspx" />
+    <Content Include="bin\Expenses.dll" />
+    <Content Include="bin\Expenses.pdb" />
+    <Content Include="ccs\expenses.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="controls\_ucDatesRange.ascx" />
+    <Content Include="controls\_ucMonthYear.ascx" />
+    <Content Include="html\copyright.htm" />
+    <Content Include="images\AddRecord.gif" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="images\busy.gif" />
+    <Content Include="images\Cancel.gif" />
+    <Content Include="images\Delete.gif" />
+    <Content Include="images\Edit.gif" />
+    <Content Include="images\ExportToCsv.gif" />
+    <Content Include="images\ExportToExcel.gif" />
+    <Content Include="images\ExportToPdf.gif" />
+    <Content Include="images\ExportToWord.gif" />
+    <Content Include="images\icons\actions-go-down-icon-16.png" />
+    <Content Include="images\icons\actions-go-up-icon-16.png" />
+    <Content Include="images\icons\chart-pie-icon-48.png" />
+    <Content Include="images\icons\go-next-icon-16.png" />
+    <Content Include="images\icons\go-next-icon-24.png" />
+    <Content Include="images\icons\go-previous-icon-16.png" />
+    <Content Include="images\icons\go-previous-icon-24.png" />
+    <Content Include="images\icons\internet-icon-48.png" />
+    <Content Include="images\icons\invoice-icon-64.png" />
+    <Content Include="images\icons\login-in-icon-32.png" />
+    <Content Include="images\icons\login-in-icon-48.png" />
+    <Content Include="images\icons\login-out-icon-32.png" />
+    <Content Include="images\icons\refresh-icon-16.png" />
+    <Content Include="images\icons\sign-up-icon-48.png" />
+    <Content Include="images\icons\smile-icon-48.png" />
+    <Content Include="images\icons\stock-icon-48.png" />
+    <Content Include="images\icons\table-money-icon.png" />
+    <Content Include="images\login.png" />
+    <Content Include="images\Refresh.gif" />
+    <Content Include="images\Update.gif" />
+    <Content Include="js\blocker\jquery.blockUI.js" />
+    <Content Include="js\jquery-1.7.1-vsdoc.js" />
+    <Content Include="js\jquery-1.7.1.js" />
+    <Content Include="js\jquery-1.7.1.min.js" />
+    <Content Include="js\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="js\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="js\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="js\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="js\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="js\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="js\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="js\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="js\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="js\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="js\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="js\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="js\css\smoothness\jquery-ui-1.8.18.custom.css" />
+    <Content Include="js\jquery-ui\jquery-ui-1.8.18.custom.min.js" />
+    <Content Include="README.jQuery.vsdoc.txt" />
+    <Content Include="report\report_sum_by_month.aspx" />
+    <Content Include="report\report_sum_by_dates_range.aspx" />
+    <Content Include="settings\exp_settings_assign_subctg_to_ctg.aspx" />
+    <Content Include="settings\exp_setting_main.aspx" />
+    <Content Include="tools\exp_tools_loan_cal.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="activity_month_calendar.aspx.cs">
+      <DependentUpon>activity_month_calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="activity_month_calendar.aspx.designer.cs">
+      <DependentUpon>activity_month_calendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="activity_day_form.aspx.cs">
+      <DependentUpon>activity_day_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="activity_day_form.aspx.designer.cs">
+      <DependentUpon>activity_day_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="code\LibDB.cs" />
+    <Compile Include="code\LibEnum.cs" />
+    <Compile Include="code\LibStruc.cs" />
+    <Compile Include="code\LibCode.cs" />
+    <Compile Include="controls\_ucDatesRange.ascx.cs">
+      <DependentUpon>_ucDatesRange.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\_ucDatesRange.ascx.designer.cs">
+      <DependentUpon>_ucDatesRange.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="controls\_ucMonthYear.ascx.cs">
+      <DependentUpon>_ucMonthYear.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="controls\_ucMonthYear.ascx.designer.cs">
+      <DependentUpon>_ucMonthYear.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="data\expenses.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>expenses.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="master\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="master\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="report\report_sum_by_month.aspx.cs">
+      <DependentUpon>report_sum_by_month.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="report\report_sum_by_month.aspx.designer.cs">
+      <DependentUpon>report_sum_by_month.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="report\report_sum_by_dates_range.aspx.cs">
+      <DependentUpon>report_sum_by_dates_range.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="report\report_sum_by_dates_range.aspx.designer.cs">
+      <DependentUpon>report_sum_by_dates_range.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="settings\exp_settings_assign_subctg_to_ctg.aspx.cs">
+      <DependentUpon>exp_settings_assign_subctg_to_ctg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="settings\exp_settings_assign_subctg_to_ctg.aspx.designer.cs">
+      <DependentUpon>exp_settings_assign_subctg_to_ctg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="settings\exp_setting_main.aspx.cs">
+      <DependentUpon>exp_setting_main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="settings\exp_setting_main.aspx.designer.cs">
+      <DependentUpon>exp_setting_main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tools\exp_tools_loan_cal.aspx.cs">
+      <DependentUpon>exp_tools_loan_cal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tools\exp_tools_loan_cal.aspx.designer.cs">
+      <DependentUpon>exp_tools_loan_cal.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="admin\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="account\Web.config" />
+    <Content Include="master\Main.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="data\expenses.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>expenses.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Properties\PublishProfiles\ruselli4.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

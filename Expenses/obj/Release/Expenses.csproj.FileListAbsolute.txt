@@ -1,0 +1,13 @@
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\Expenses.dll.config
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\Expenses.dll
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\Expenses.pdb
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\EntityFramework.dll
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\Newtonsoft.Json.dll
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\EntityFramework.xml
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\Newtonsoft.Json.pdb
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\bin\Newtonsoft.Json.xml
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\obj\Release\Expenses.csprojResolveAssemblyReference.cache
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\obj\Release\Expenses.Properties.Resources.resources
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\obj\Release\Expenses.csproj.GenerateResource.Cache
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\obj\Release\Expenses.dll
+D:\@Ruslan\Dev\Expenses\Expenses\Backup\Expenses\obj\Release\Expenses.pdb

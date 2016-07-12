@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="expensesModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="expensesModelStoreContainer">
+    <EntitySet Name="aspnet_Membership" EntityType="expensesModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="aspnet_Users" EntityType="expensesModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="exp_ctg" EntityType="expensesModel.Store.exp_ctg" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="exp_ctglink" EntityType="expensesModel.Store.exp_ctglink" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="exp_event" EntityType="expensesModel.Store.exp_event" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="exp_event_type" EntityType="expensesModel.Store.exp_event_type" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="exp_record" EntityType="expensesModel.Store.exp_record" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="exp_subctg" EntityType="expensesModel.Store.exp_subctg" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="exp_user" EntityType="expensesModel.Store.exp_user" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__aspnet_Me__UserI__29E1370A" Association="expensesModel.Store.FK__aspnet_Me__UserI__29E1370A">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_ctglink_exp_ctg" Association="expensesModel.Store.FK_exp_ctglink_exp_ctg">
+      <End Role="exp_ctg" EntitySet="exp_ctg" />
+      <End Role="exp_ctglink" EntitySet="exp_ctglink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_ctglink_exp_subctg" Association="expensesModel.Store.FK_exp_ctglink_exp_subctg">
+      <End Role="exp_subctg" EntitySet="exp_subctg" />
+      <End Role="exp_ctglink" EntitySet="exp_ctglink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_ctglink_exp_user" Association="expensesModel.Store.FK_exp_ctglink_exp_user">
+      <End Role="exp_user" EntitySet="exp_user" />
+      <End Role="exp_ctglink" EntitySet="exp_ctglink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_event_exp_event_type" Association="expensesModel.Store.FK_exp_event_exp_event_type">
+      <End Role="exp_event_type" EntitySet="exp_event_type" />
+      <End Role="exp_event" EntitySet="exp_event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_event_exp_user" Association="expensesModel.Store.FK_exp_event_exp_user">
+      <End Role="exp_user" EntitySet="exp_user" />
+      <End Role="exp_event" EntitySet="exp_event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_record_exp_ctg" Association="expensesModel.Store.FK_exp_record_exp_ctg">
+      <End Role="exp_ctg" EntitySet="exp_ctg" />
+      <End Role="exp_record" EntitySet="exp_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_record_exp_subctg" Association="expensesModel.Store.FK_exp_record_exp_subctg">
+      <End Role="exp_subctg" EntitySet="exp_subctg" />
+      <End Role="exp_record" EntitySet="exp_record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exp_record_exp_user" Association="expensesModel.Store.FK_exp_record_exp_user">
+      <End Role="exp_user" EntitySet="exp_user" />
+      <End Role="exp_record" EntitySet="exp_record" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="exp_ctg">
+    <Key>
+      <PropertyRef Name="CtgId" />
+    </Key>
+    <Property Name="CtgId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CtgName" Type="varchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="exp_ctglink">
+    <Key>
+      <PropertyRef Name="CtgLinkId" />
+    </Key>
+    <Property Name="CtgId" Type="int" Nullable="false" />
+    <Property Name="SubCtgId" Type="int" Nullable="false" />
+    <Property Name="CtgLinkId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="exp_event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="EventDesc" Type="varchar" Nullable="false" MaxLength="2000" />
+    <Property Name="Event1" Type="varchar" MaxLength="100" />
+    <Property Name="Event2" Type="varchar" MaxLength="100" />
+    <Property Name="Event3" Type="varchar" MaxLength="100" />
+    <Property Name="Event4" Type="varchar" MaxLength="100" />
+    <Property Name="Event5" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="exp_event_type">
+    <Key>
+      <PropertyRef Name="EventTypeId" />
+    </Key>
+    <Property Name="EventTypeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventTypeDesc" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="exp_record">
+    <Key>
+      <PropertyRef Name="ExpId" />
+    </Key>
+    <Property Name="ExpId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AmtExp" Type="money" Nullable="false" />
+    <Property Name="YmdAdd" Type="smalldatetime" Nullable="false" />
+    <Property Name="CtgId" Type="int" Nullable="false" />
+    <Property Name="SubCtgId" Type="int" Nullable="false" />
+    <Property Name="ExpSchemeId" Type="int" />
+    <Property Name="ExpDesc" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="exp_subctg">
+    <Key>
+      <PropertyRef Name="SubCtgId" />
+    </Key>
+    <Property Name="SubCtgId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SubCtgName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="exp_user">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ActiveCode" Type="varchar" MaxLength="30" />
+    <Property Name="ActiveStatus" Type="bit" />
+    <Property Name="AgreeStatus" Type="bit" />
+    <Property Name="FreeSpace" Type="int" />
+    <Property Name="YmdEff" Type="smalldatetime" />
+    <Property Name="YmdEnd" Type="smalldatetime" />
+    <Property Name="AspUserId" Type="uniqueidentifier" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__UserI__29E1370A">
+    <End Role="aspnet_Users" Type="expensesModel.Store.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="expensesModel.Store.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_ctglink_exp_ctg">
+    <End Role="exp_ctg" Type="expensesModel.Store.exp_ctg" Multiplicity="1" />
+    <End Role="exp_ctglink" Type="expensesModel.Store.exp_ctglink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_ctg">
+        <PropertyRef Name="CtgId" />
+      </Principal>
+      <Dependent Role="exp_ctglink">
+        <PropertyRef Name="CtgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_ctglink_exp_subctg">
+    <End Role="exp_subctg" Type="expensesModel.Store.exp_subctg" Multiplicity="1" />
+    <End Role="exp_ctglink" Type="expensesModel.Store.exp_ctglink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_subctg">
+        <PropertyRef Name="SubCtgId" />
+      </Principal>
+      <Dependent Role="exp_ctglink">
+        <PropertyRef Name="SubCtgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_ctglink_exp_user">
+    <End Role="exp_user" Type="expensesModel.Store.exp_user" Multiplicity="0..1" />
+    <End Role="exp_ctglink" Type="expensesModel.Store.exp_ctglink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="exp_ctglink">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_event_exp_event_type">
+    <End Role="exp_event_type" Type="expensesModel.Store.exp_event_type" Multiplicity="1" />
+    <End Role="exp_event" Type="expensesModel.Store.exp_event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_event_type">
+        <PropertyRef Name="EventTypeId" />
+      </Principal>
+      <Dependent Role="exp_event">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_event_exp_user">
+    <End Role="exp_user" Type="expensesModel.Store.exp_user" Multiplicity="1" />
+    <End Role="exp_event" Type="expensesModel.Store.exp_event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="exp_event">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_record_exp_ctg">
+    <End Role="exp_ctg" Type="expensesModel.Store.exp_ctg" Multiplicity="1" />
+    <End Role="exp_record" Type="expensesModel.Store.exp_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_ctg">
+        <PropertyRef Name="CtgId" />
+      </Principal>
+      <Dependent Role="exp_record">
+        <PropertyRef Name="CtgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_record_exp_subctg">
+    <End Role="exp_subctg" Type="expensesModel.Store.exp_subctg" Multiplicity="1" />
+    <End Role="exp_record" Type="expensesModel.Store.exp_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_subctg">
+        <PropertyRef Name="SubCtgId" />
+      </Principal>
+      <Dependent Role="exp_record">
+        <PropertyRef Name="SubCtgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exp_record_exp_user">
+    <End Role="exp_user" Type="expensesModel.Store.exp_user" Multiplicity="1" />
+    <End Role="exp_record" Type="expensesModel.Store.exp_record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exp_user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="exp_record">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="proc_exp_rpt_sum_dates_range" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="dtFrom" Type="varchar" Mode="In" />
+    <Parameter Name="dtTo" Type="varchar" Mode="In" />
+  </Function>
+</Schema>
